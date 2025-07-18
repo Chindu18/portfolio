@@ -1,62 +1,97 @@
-import React from 'react'
-import './index.css'
-import gsap from 'gsap'
-import {useGSAP} from '@gsap/react'
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// HeroPage.jsx
+import React, { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroPage = () => {
-useGSAP(()=>{
-  let tt=gsap.timeline()
-  let tl=gsap.timeline()
-
-  tt.fromTo('.text',{opacity: 0},{opacity: 1})
-  .fromTo('.text',{zIndex:0},{zIndex:2})
-  .to('.img-2',{onStart:()=>{
-       document.querySelector('.img-2').classList.add('blur-active')
-  }})
-  .to('.text',{opacity:0})
-   
-  tl.fromTo('.blog',{yPercent:100},{yPercent:0})
  
 
-  ScrollTrigger.create({
-    trigger:'.img-container',
-    start:'top 5%',
-    end:'+=20%',
-    scrub:true,
-    markers: true,
-    animation:tt,
-    pin:true    
-  })
-   ScrollTrigger.create({
-    trigger:'.img-container',
-    start:'top 5%',
-    end:'+=0%',
-    scrub:true,
-    markers: true,
-    animation:tt,
-    pin:true    
-  })
+  useGSAP(() => {
+     gsap.to('.left-content,.right-content',{
+      scrollTrigger:{
+        trigger:'.child1',
+        start:'top 99.9%',
+        end:'top 98%',
+        scrub:true,
+      },
+      opacity:0
+     })
 
-},[])
+    const tl = gsap.timeline();
+    const tl2=gsap.timeline();
+    const tl3=gsap.timeline();
+
+
+    tl.fromTo('.child1', { yPercent: 100 }, { yPercent: 0 })
+  
+    tl2.fromTo('.text',{opacity:0},{opacity:1})
+    .fromTo('.text',{zIndex:0},{zIndex:2}) 
+      
+   tl3.fromTo('.text', {display:'flex',alignItems:'center',justifyContent:'center'},{
+   top: '-180px', 
+   scale: 0.5, })
+   .to('.text-h1',{letterSpacing:'7px'});
+
+    ScrollTrigger.create({
+      trigger: ".hero-page",
+      start: "top top",
+      end: "+=100%",
+      scrub: true,
+      pin: true,
+      animation: tl,
+     
+    });
+
+    ScrollTrigger.create({
+      trigger:'.child1',
+      start:'top 95%',
+      end:'+=30%',
+      animation:tl2,
+      scrub:true,
+     
+    })
+
+    ScrollTrigger.create({
+  trigger: '.child1',
+  start: 'top center',
+  end: 'top top',
+  scrub: true,
+  animation: tl3,
+  
+});
+
+  }, []);
 
   return (
-    <>
-    <div className='full-page'>
-      <div className='img-container'>
-        <img className='img-1' src="./img/chin.png" alt="img-1" />
-        <img className='img-2' src="./img/chin2.png" alt="img-2" />
-        <div className='text'><h1>Hi I am CHIN </h1></div>
+    <div className='hero-wrapper'>
+      <div className='hero-page'>
+        <div className='left-content'>
+          <div className='ll'>
+           <div className='hello'>Hello</div>
+            <div className='info'>scroll down to see my blog + projects</div>
+          </div>    
+        </div>
+         <div className='right-content'>
+          <div className='ll'>
+           <div className='hello'>Guys!</div>
+            <div className='info'>scroll down to see my blog + projects</div>
+          </div>    
+        </div>
+       
+
+        <div className='img'> <img  src="./img/chin.png" alt="" /></div>
+        <div className='text'><h1 className='text-h1'>Hi, I'm Web Developer!</h1></div>
+         <div className='img1'> <img  src="./img/chin2.png" alt="" /></div>
+        <div className='layer child1'>
+
+        </div>
+       
       </div>
-       <div className='blog bg-black'>
     </div>
-   
+  );
+};
 
-    </div>
-    </>
-  )
-}
-
-export default HeroPage
+export default HeroPage;

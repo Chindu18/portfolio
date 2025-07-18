@@ -4,9 +4,9 @@ import HeroPage from './HEroPage'
 
 const App = () => {
   return (
-    <div className='w-100'>
-      <Navbar/>
-      <HeroPage/>
+    <div className='hero'>
+        <Navbar/>
+        <HeroPage/>
     </div>
   )
 }
