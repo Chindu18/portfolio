@@ -26,7 +26,7 @@
   left: -150px;
 }
 .hero-wrapper {
-  height: 200vh;
+  height: 300vh;
 }
 
 .hero-page {
@@ -45,11 +45,17 @@
 }
 
 .child1 {
-  background-color: red;
+  background-color: #C2C0C1;
   z-index: 1;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 
+.full-nav{
+  padding: 0px 100px ;
+}
 .navbar {
   position: fixed;
   top: 10px;
@@ -89,11 +95,59 @@
   font-size: 100px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 500;
-}
+}Roman
 
 .info{
-  font-family:Georgia, Times, 'Times New Roman', serif;
+  font-family:Georgia, Times, 'Times New ', serif;
 }
 .nav-link,.nn{
   color: #212529 !important;
+}
+
+
+
+/* for li items hover */
+.nav-link:hover{
+  color: red !important;
+}
+.about{
+  padding: 220px 100px;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
+}
+.blog-content{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.pr-div{
+position: relative;
+height: 100vh;
+width: 100%;
+overflow: hidden;
+}
+.project{
+    position: absolute;
+    height: 60%;
+    width: 60%;
+    top: 50;
+    bottom: 0;
+}
+.p1{
+    z-index: 1;
+}
+.p2{
+    z-index: 2;
+}
+.p3{
+    z-index: 3;
+}
+
+.pppp{
+  font-size: 100px;
+  position: absolute;
+  top:10%;
+  letter-spacing: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

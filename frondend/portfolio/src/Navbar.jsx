@@ -2,8 +2,8 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-md  px-4 py-1 box-shadow" style={{background:'transparent'}}>
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-md  px-5 py-1 box-shadow full-nav" style={{background:'transparent'}}>
+      <div className="container-fluid ">
         <a className="navbar-brand " href="#">Logo</a>
         <button
           className="navbar-toggler nn "
@@ -18,10 +18,10 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mx-auto gap-md-4 text-center">
             <li className="nav-item">
-              <a className="nav-link " href="#">Home</a>
+              <a className="nav-link nav-content" href="#">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link " href="#">Blog</a>
+              <a className="nav-link " href="#blog">Blog</a>
             </li>
             <li className="nav-item">
               <a className="nav-link " href="#">Project</a>
